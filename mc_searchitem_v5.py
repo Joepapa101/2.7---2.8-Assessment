@@ -12,26 +12,25 @@ while True:
         msgbox(f'{searchcard} does not exist.')
 
 
-if editcard == 'Edit':
-    print(monster_cards[searchcard])
-    ability = buttonbox('What abilities would you like to change', choices=[f'Strength ({monster_cards[searchcard]["strength"]})\
-', f'Speed ({monster_cards[searchcard]["speed"]})', f'Stealth ({monster_cards[searchcard]["stealth"]})', f'Cunning ({monster_cards[searchcard]["cunning"]})'])
-    print(monster_cards[searchcard])
-    #above 25 limit loop
-    while True:
+while True:
+    editcard = buttonbox(monster_cards[editcard], choices=['Ok', 'Edit'])
+
+
+    if editcard == 'Edit':
+        ability = buttonbox('What abilities would you like to change', choices=[f'Strength ({monster_cards[editcard]["strength"]})\
+    ', f'Speed ({monster_cards[editcard]["speed"]})', f'Stealth ({monster_cards[editcard]["stealth"]})', f'Cunning ({monster_cards[editcard]["cunning"]})',])
+        print(monster_cards[editcard])
+        #above 25 limit loop
         abilityamount = enterbox(f'Enter new value for {ability}')
-        if abilityamount >= 25:
+        if int(abilityamount) >= 25:
             msgbox("You can't enter a number above 25")
         elif not abilityamount.isdigit():
             print('Enter an integer')
-        else:
-            break
-            
-    realability = ability.split(' ')[0]
-    monster_cards[searchcard][realability.lower()] = [abilityamount]
-    print(monster_cards[searchcard])
-elif editcard == 'Exit':
-    print('ur mum')
+        realability = ability.split(' ')[0]
+        monster_cards[editcard][realability.lower()] = [abilityamount]
+        print(monster_cards[editcard])
+    elif editcard == 'Ok':
+        break
 
 #firstcombo.split(':')[1]
 #Change-log - improved searchcard function

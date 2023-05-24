@@ -6,37 +6,45 @@ while True:
     cardname = enterbox('Enter the name of the card you would like to add')
     
     while True:
-        strength = int(enterbox('Enter the strength of the character'))
-        if strength >= 25:
+        strength = enterbox('Enter the strength of the character')
+        if not strength.isdigit():
+            msgbox('Please enter an integer')
+        elif int(strength) >= 25:
             msgbox("You can't enter a number greater than 25 strength")
         else:
             break
     
     while True:
-        speed = int(enterbox('Enter the speed of the character'))
-        if speed >= 25:
-            msgbox("You can't enter a number greater than 25 speed")
+        speed = enterbox('Enter the speed of the character')
+        if not speed.isdigit():
+            msgbox('Please enter an integer')
+        elif int(speed) >= 25:
+            msgbox("You can't enter a number greater than 25")
         else:
             break
 
     while True:
-        stealth = int(enterbox('Enter the stealth of the character'))
-        if stealth >= 25:
-            msgbox("You can't enter a number greater than 25 stealth")
+        stealth = enterbox('Enter the stealth of the character')
+        if not stealth.isdigit():
+            msgbox('Please enter an integer')
+        elif int(stealth) >= 25:
+            msgbox("You can't enter a number greater than 25")
         else:
             break
 
     while True:
-        cunning = int(enterbox('Enter the cunning of the character'))
-        if cunning >= 25:
-            msgbox("You can't enter a number greater than 25 cunning6")
+        cunning = enterbox('Enter the cunning of the character')
+        if not cunning.isdigit():
+            msgbox('Please enter an integer')
+        elif int(cunning) >= 25:
+            msgbox("You can't enter a number greater than 25")
         else:
             break
 
 
     monster_cards[cardname] = {
-        'strength': [strength],
-        'speed': [speed],
-        'stealth': [stealth],
-        'cunning': [cunning]
+        'strength': [strength.int],
+        'speed': [speed.int],
+        'stealth': [stealth.int],
+        'cunning': [cunning.int]
     }
