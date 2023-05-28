@@ -59,7 +59,7 @@ def add_card(monster_cards):
             msgbox('Please enter something')
         elif not (strength.isdigit() and speed.isdigit() and stealth.isdigit() and cunning.isdigit()):
             msgbox('Please enter an integer in abilities.')
-        elif int(strength) >= 25 or int(speed) >= 25 or int(stealth) >= 25 or int(cunning) >= 25:
+        elif int(strength) >= 26 or int(speed) >= 26 or int(stealth) >= 26 or int(cunning) >= 26:
             msgbox('Please enter a number below 25')
         else:
             break
@@ -100,9 +100,13 @@ def add_card(monster_cards):
             # Error checker for the user's input, checking the number isn't above 25
             while True:
                 ability_amount = enterbox(f'Enter new value for {ability}', title='Edit Card')
+                #checks to see if cancel is pressed the program will revert to 
+                # welcome_options
+                if ability_amount is None:
+                    welcome_options()
                 if not ability_amount.isdigit():
                     msgbox('Enter an integer', title='Edit Card')
-                elif int(ability_amount) >= 25:
+                elif int(ability_amount) >= 26:
                     msgbox("You can't enter a number above 25", title='Edit Card')
                 else:
                     break
@@ -183,7 +187,7 @@ def search_card(monster_cards):
 
                 if not ability_amount.isdigit():
                     msgbox('Enter an integer', title='Edit Card')
-                elif int(ability_amount) >= 25:
+                elif int(ability_amount) >= 26:
                     msgbox("You can't enter a number above 25", title='Edit Card')
                 else:
                     break
